@@ -43,7 +43,8 @@ export default {
     &:hover {
       cursor: pointer;
       .img {
-        background-color:rgba(@theme-blue, .3);
+        // background-color:rgba(@theme-blue, .3);
+        box-shadow: inset 0 5px 10px rgba(@theme-blue, .5);
         border-radius: 50%;
       }
       .title {
