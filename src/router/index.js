@@ -1,28 +1,117 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import store from '@/store'
+
+import Login from "@/views/login";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home
+    name: "/",
+    redirect: "/integration",
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: "/login",
+    name: "Login",
+    component: Login,
+    // 某些页面规定必须登录后才能查看 ，可以在router中配置 meta ，将不需要登录的 noRequireToken 设为true，
+    meta: {
+      noRequireToken: true,
+    }
+  },
+  {
+    path: "/integration",
+    name: "Integration",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import("@/views/integration"),
+    redirect: "/integration/home",
+    children: [
+      {
+        path: "home",
+        name: "Home",
+        component: () =>
+          import("@/views/integration/home")
+      },
+      {
+        path: "eg1",
+        name: "eg1",
+        component: () =>
+          import("@/views/integration/eg1")
+      },
+      {
+        path: "eg2",
+        name: "eg2",
+        component: () =>
+          import("@/views/integration/eg2")
+      },
+    ]
+  },
+  {
+    path: "/back-system",
+    name: "BackSystem",
+    component: () =>
+      import("@/views/back-system"),
+    redirect: "/back-system/homepage",
+    children: [
+      {
+        path: "homepage",
+        name: "Homepage",
+        component: () =>
+          import("@/views/back-system/homepage")
+      },
+      {
+        path: "reservoir",
+        name: "Reservoir",
+        component: () =>
+          import("@/views/back-system/reservoir")
+      },
+    ]
+  },
+  {
+    path: "/404",
+    name: "NotPage",
+    component: () =>
+      import("@/views/404/index2.vue")
+  },
+  {
+    path: "*",
+    name: "AllPage",
+    redirect: "/404"
   }
 ];
 
 const router = new VueRouter({
   routes
+});
+
+
+// 设置路由守卫，在进页面之前，判断有token，才进入页面，否则返回登录页面
+router.beforeEach((to, from, next) => {
+  console.log(to,to.query.toMenu)
+  // 判断要去的路由有没有 noRequireToken
+  // to.matched.some(r => r.meta.noRequireToken) or to.meta.noRequireToken
+  if (to.matched.some(r => !r.meta.noRequireToken)) {
+    let token = store.getters.getToken
+    console.log("token：", token)
+    if (token) {
+      // 更新menu-cards
+      store.dispatch("back/addOpenMenusAction", to.query.toMenu);
+      next(); //有token,进行request请求，后台还会验证token
+    } else {
+      next({
+        name: "Login", // 使用params参数不会消失，meta刷新后消失；params必须和query一起用？
+        // path:"/login",
+        // 将刚刚要去的路由path（却无权限）作为参数，方便登录成功后直接跳转到该路由，这要进一步在登陆页面判断
+        query: { redirect: to.fullPath },
+        // params: { redirect: to.fullPath },
+        // meta: { redirect: to.fullPath },
+      });
+    }
+  } else {
+    next(); //如果无需token,那么随它去吧
+  }
 });
 
 export default router;
