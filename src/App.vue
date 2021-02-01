@@ -1,7 +1,7 @@
 <!--
  * @Author: 杨云峰
  * @Date: 2020-12-31 09:32:37
- * @LastEditTime: 2021-01-25 18:36:01
+ * @LastEditTime: 2021-01-29 17:43:03
  * @LastEditors: 杨云峰
  * @Description: 
 -->
@@ -38,5 +38,13 @@
 @font-face {
   font-family: "PingFangBold";
   src: url("../public/font/PingFangBold.ttf");
+}
+@font-face {
+  font-family: "PingFangJianChangGuiTi";
+  src: url("../public/font/PingFangJianChangGuiTi.ttf");
+}
+@font-face {
+  font-family: "PingFangTeCuTi";
+  src: url("../public/font/PingFangTeCuTi.ttf");
 }
 </style>

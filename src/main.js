@@ -16,12 +16,16 @@ import components from './utils/viewUI.js'
 import { dateFormat, storage } from './utils/common.js'
 // 引入 mock 模拟数据
 import './mock'
+// 全局引入echarts
+// import echarts from 'echarts'
 
 // 执行components的install
 Vue.use(components)
 // 挂载vue属性,$指自定义公用属性-可选
 Vue.prototype.$dateFormat = dateFormat
 Vue.prototype.$storage = storage
+Vue.prototype.$echarts = require('echarts')
+// console.log(require('echarts'))
 
 Vue.config.productionTip = false;
 

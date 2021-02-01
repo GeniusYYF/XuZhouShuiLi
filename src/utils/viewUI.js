@@ -1,5 +1,5 @@
 import {
-    Button, Icon, Form, FormItem, Input, Message, Menu, MenuItem, Submenu, MenuGroup, Badge, Layout, Sider, Breadcrumb, BreadcrumbItem, Content, Row, Col, Carousel, CarouselItem, Card, Tabs, TabPane,Avatar,
+    Button, Icon, Form, FormItem, Input, Message, Menu, MenuItem, Submenu, MenuGroup, Badge, Layout, Sider, Breadcrumb, BreadcrumbItem, Content, Row, Col, Carousel, CarouselItem, Card, Tabs, TabPane, Avatar, List, Circle, Select, Option, DatePicker, Table, Page, RadioGroup, Radio
 } from "view-design";
 
 // 按需引入
@@ -28,7 +28,18 @@ const initViewComs = function (Vue) {
     Vue.component('Tabs', Tabs)
     Vue.component('TabPane', TabPane)
     Vue.component('Avatar', Avatar)
-    
+    Vue.component('Select', Select)
+    Vue.component('Option', Option)
+    Vue.component('DatePicker', DatePicker)
+    Vue.component('Table', Table)
+    Vue.component('Page', Page)
+    // 特殊组件的引入
+    Vue.component('List', List)
+    Vue.component('ListItem', List.Item)
+    Vue.component('ListItemMeta', List.Item.Meta)
+    Vue.component('i-circle', Circle)
+    Vue.component('RadioGroup', RadioGroup)
+    Vue.component('Radio', Radio)
     // 需要挂在属性的组件
     Vue.prototype.$Message = Message
 }

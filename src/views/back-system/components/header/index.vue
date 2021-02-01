@@ -1,6 +1,15 @@
 <template>
   <Row>
-    <Menu class="header" mode="horizontal" theme="dark" active-name="1">
+    <Menu
+      class="header"
+      mode="horizontal"
+      theme="dark"
+      :active-name="activeHeaderName"
+      :style="{
+        background: `url(${require('@/assets/back-system/header/background.png')}) no-repeat`,
+        'background-size': '100% 100%',
+      }"
+    >
       <Col :xl="{ span: 9 }" :xxl="{ span: 9 }" class="title">
         <li class="title-wrapper">
           <img
@@ -10,24 +19,18 @@
         </li>
       </Col>
       <Col :xl="{ span: 11 }" :xxl="{ span: 11 }">
-        <MenuItem name="1" class="header-item" :to="'/back-system/homepage'">
+        <MenuItem
+          v-for="(item, i) in MenuItems"
+          :key="i"
+          :name="i + 1 + ''"
+          class="header-item"
+          :to="{
+            path: item.path,
+            query: { ...$route.query, toSystem: i + 1 },
+          }"
+        >
           <!-- 因下划线需要被span包裹 -->
-          <span>首页</span>
-        </MenuItem>
-        <MenuItem name="2" class="header-item">
-          <span>一级导航</span>
-        </MenuItem>
-        <MenuItem name="3" class="header-item">
-          <span>一级导航</span>
-        </MenuItem>
-        <MenuItem name="4" class="header-item">
-          <span>一级导航</span>
-        </MenuItem>
-        <MenuItem name="5" class="header-item">
-          <span>一级导航</span>
-        </MenuItem>
-        <MenuItem name="6" class="header-item">
-          <span>一级导航</span>
+          <span>{{ item.title }}</span>
         </MenuItem>
       </Col>
       <Col :xl="{ span: 4 }" :xxl="{ span: 4 }" class="tool">
@@ -47,15 +50,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    activeHeaderName() {
+      return this.$store.getters["back/getActiveHeaderName"];
+    },
+  },
+  data() {
+    return {
+      MenuItems: [
+        { title: "首页", path: "/back-system/system1" },
+        { title: "水库管理", path: "/back-system/system2" },
+        { title: "一级导航", path: "" },
+        { title: "一级导航", path: "" },
+        { title: "一级导航", path: "" },
+        { title: "一级导航", path: "" },
+      ],
+    };
+  },
+  mounted() {
+    this.$store.commit("back/setActiveHeaderName", this.$route.query.toSystem);
+  },
+};
 </script>
 
 <style lang="less" scoped>
 .header {
   height: @back-header-height;
-  background: url("../../../../assets/back-system/header/background.png")
-    no-repeat;
-  background-size: 100% 100%;
 
   .ivu-col {
     height: 100%;

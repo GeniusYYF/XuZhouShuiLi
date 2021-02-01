@@ -53,19 +53,49 @@ const routes = [
     name: "BackSystem",
     component: () =>
       import("@/views/back-system"),
-    redirect: "/back-system/homepage",
+    redirect: "/back-system/system1",
     children: [
       {
-        path: "homepage",
-        name: "Homepage",
+        path: "system1",
+        name: "System1",
         component: () =>
-          import("@/views/back-system/homepage")
+          import("@/views/back-system/system1"),
+        redirect: "/back-system/system1/map",
+        children: [
+          {
+            path: "map",
+            name: "Map",
+            component: () =>
+              import("@/views/back-system/system1/map")
+          },
+        ]
       },
       {
-        path: "reservoir",
-        name: "Reservoir",
+        path: "system2",
+        name: "System2",
         component: () =>
-          import("@/views/back-system/reservoir")
+          import("@/views/back-system/system2"),
+        redirect: "/back-system/system2/homepage",
+        children: [
+          {
+            path: "homepage",
+            name: "Homepage",
+            component: () =>
+              import("@/views/back-system/system2/homepage")
+          },
+          {
+            path: "reservoir",
+            name: "Reservoir",
+            component: () =>
+              import("@/views/back-system/system2/reservoir")
+          },
+          {
+            path: "empty",
+            name: "Empty",
+            component: () =>
+              import("@/views/back-system/system2/empty")
+          },
+        ]
       },
     ]
   },
@@ -89,15 +119,12 @@ const router = new VueRouter({
 
 // 设置路由守卫，在进页面之前，判断有token，才进入页面，否则返回登录页面
 router.beforeEach((to, from, next) => {
-  console.log(to,to.query.toMenu)
   // 判断要去的路由有没有 noRequireToken
   // to.matched.some(r => r.meta.noRequireToken) or to.meta.noRequireToken
   if (to.matched.some(r => !r.meta.noRequireToken)) {
     let token = store.getters.getToken
-    console.log("token：", token)
+    // console.log("token：", token)
     if (token) {
-      // 更新menu-cards
-      store.dispatch("back/addOpenMenusAction", to.query.toMenu);
       next(); //有token,进行request请求，后台还会验证token
     } else {
       next({

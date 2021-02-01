@@ -45,7 +45,7 @@
           <Icon
             class="header-icon"
             type="md-settings"
-            @click="$router.push('/back-system/homepage')"
+            @click="$router.push('/back-system/system1/map')"
           />
         </li>
       </Col>
