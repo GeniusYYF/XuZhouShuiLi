@@ -55,7 +55,7 @@ export default {
       display: inline-block;
     }
     .num {
-      font-size: 3vh;
+      font-size: @back-system1-num-size;
       font-family: "YouSheBiaoTiHei";
       margin: 0 2%;
       &.num-yellow {
@@ -84,8 +84,8 @@ export default {
       background-color: #f8f8f8;
       margin: 7px 0;
       padding: 5px 10px;
-      font-weight: 700;
       &.title {
+        font-weight: 700;
         line-height: 1;
         background-color: transparent;
       }
@@ -95,6 +95,7 @@ export default {
         display: inline-block;
       }
       .col1 {
+        font-weight: 700;
         width: 35%;
       }
       .col2 {

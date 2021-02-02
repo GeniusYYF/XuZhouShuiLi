@@ -9,6 +9,7 @@
         background: `url(${require('@/assets/back-system/header/background.png')}) no-repeat`,
         'background-size': '100% 100%',
       }"
+      @on-select="itemClick"
     >
       <Col :xl="{ span: 9 }" :xxl="{ span: 9 }" class="title">
         <li class="title-wrapper">
@@ -22,25 +23,33 @@
         <MenuItem
           v-for="(item, i) in MenuItems"
           :key="i"
-          :name="i + 1 + ''"
+          :name="item.name"
           class="header-item"
-          :to="{
+        >
+          <!-- :to="{
             path: item.path,
             query: { ...$route.query, toSystem: i + 1 },
-          }"
-        >
+          }" -->
           <!-- 因下划线需要被span包裹 -->
           <span>{{ item.title }}</span>
         </MenuItem>
       </Col>
       <Col :xl="{ span: 4 }" :xxl="{ span: 4 }" class="tool">
         <li class="tool-wrapper">
-          <img :src="require(`@/assets/back-system/header/search.png`)" />
-          <img :src="require(`@/assets/back-system/header/msg.png`)" />
-          <img
-            :src="require(`@/assets/back-system/header/share.png`)"
-            @click="$router.push('/')"
-          />
+          <span class="tool-item">
+            <img :src="require(`@/assets/back-system/header/search.png`)" />
+          </span>
+          <span class="tool-item">
+            <Badge class="badge" dot>
+              <img :src="require(`@/assets/back-system/header/msg.png`)" />
+            </Badge>
+          </span>
+          <span class="tool-item">
+            <img
+              :src="require(`@/assets/back-system/header/share.png`)"
+              @click="$router.push('/')"
+            />
+          </span>
           |
           <Avatar :src="require(`@/assets/back-system/header/avatar.png`)" />
         </li>
@@ -50,6 +59,8 @@
 </template>
 
 <script>
+import { getSiderDatas } from "@/api/back-system/sider.js";
+
 export default {
   computed: {
     activeHeaderName() {
@@ -59,17 +70,51 @@ export default {
   data() {
     return {
       MenuItems: [
-        { title: "首页", path: "/back-system/system1" },
-        { title: "水库管理", path: "/back-system/system2" },
-        { title: "一级导航", path: "" },
-        { title: "一级导航", path: "" },
-        { title: "一级导航", path: "" },
-        { title: "一级导航", path: "" },
+        { title: "首页", path: "/back-system/system1", name: "System1" },
+        {
+          title: "公共基础服务",
+          path: "/back-system/system2",
+          name: "System2",
+        },
+        {
+          title: "应用支撑服务",
+          path: "/back-system/system3",
+          name: "System3",
+        },
+        {
+          title: "资源服务管理",
+          path: "/back-system/system4",
+          name: "System4",
+        },
       ],
     };
   },
+  methods: {
+    itemClick(name) {
+      if (name !== this.$store.getters["back/getActiveHeaderName"]) {
+        getSiderDatas(name)
+          .then(({ data }) => {
+            console.log(data);
+            this.$store.commit("back/setSiderDatas", data.data);
+            this.updateHeaderName(name);
+            this.$router.push({
+              name,
+              query: { toSystem: name },
+            });
+          })
+          .catch((error) => {
+            // 错误分为 status-请求错误 和 code-账号密码错误
+            console.log(error);
+            error ? this.$Message.error(error.msg) : "";
+          });
+      }
+    },
+    updateHeaderName(name) {
+      this.$store.commit("back/setActiveHeaderName", name);
+    },
+  },
   mounted() {
-    this.$store.commit("back/setActiveHeaderName", this.$route.query.toSystem);
+    this.updateHeaderName(this.$route.query.toSystem);
   },
 };
 </script>
@@ -135,9 +180,15 @@ export default {
     &.tool {
       height: inherit;
       text-align: center;
+
+      .tool-item {
+        margin-right: 1.7vw;
+      }
+      .badge {
+        line-height: 1;
+      }
       img {
         vertical-align: middle;
-        margin-right: 1.7vw;
         height: 2.5vh;
         width: 2.5vh;
 

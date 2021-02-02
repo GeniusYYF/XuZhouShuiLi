@@ -50,7 +50,7 @@ export const postLogin = response => {
         console.log("用户名密码错误")
         return {
             code: 1001,
-            msg: "用户名密码错误"
+            msg: "正确的用户名：admin，密码：1"
         }
     }
 }

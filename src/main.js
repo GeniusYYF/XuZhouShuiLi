@@ -11,13 +11,15 @@ import "view-design/dist/styles/iview.css";
 // Vue.use(ViewUI);
 
 // 引入绑定属性js View组件的按需引入在里面(**引入新组件时要在里面添加**)
-import components from './utils/viewUI.js'
+import components from './utils/view-ui.js'
 // 引入工具js 
 import { dateFormat, storage } from './utils/common.js'
 // 引入 mock 模拟数据
 import './mock'
 // 全局引入echarts
 // import echarts from 'echarts'
+// 全局引入天地图
+// import map from './utils/tian-di-tu'
 
 // 执行components的install
 Vue.use(components)
@@ -26,6 +28,8 @@ Vue.prototype.$dateFormat = dateFormat
 Vue.prototype.$storage = storage
 Vue.prototype.$echarts = require('echarts')
 // console.log(require('echarts'))
+
+// Vue.use(map)
 
 Vue.config.productionTip = false;
 

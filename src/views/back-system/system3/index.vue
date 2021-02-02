@@ -1,5 +1,5 @@
 <template>
-  <Layout class="sysytem2">
+  <Layout class="sysytem3">
     <Sider> <MySider /></Sider>
 
     <Layout>
@@ -14,7 +14,7 @@ import MySider from "../components/sider";
 import MyMenuCards from "../components/menu-crads";
 
 export default {
-  name: "Sysytem2",
+  name: "Sysytem3",
   components: {
     MySider,
     MyMenuCards,
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.sysytem2 {
+.sysytem3 {
   height: 100%;
   width: 100%;
 

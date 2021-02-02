@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import store from '@/store'
 
 import Login from "@/views/login";
-
+import Empty from "@/views/back-system/components/empty"
 Vue.use(VueRouter);
 
 const routes = [
@@ -92,8 +92,35 @@ const routes = [
           {
             path: "empty",
             name: "Empty",
-            component: () =>
-              import("@/views/back-system/system2/empty")
+            component: Empty
+          }
+        ]
+      },
+      {
+        path: "system3",
+        name: "System3",
+        component: () =>
+          import("@/views/back-system/system3"),
+        redirect: "/back-system/system3/empty",
+        children: [
+          {
+            path: "empty",
+            name: "Empty",
+            component: Empty
+          },
+        ]
+      },
+      {
+        path: "system4",
+        name: "System4",
+        component: () =>
+          import("@/views/back-system/system4"),
+        redirect: "/back-system/system4/empty",
+        children: [
+          {
+            path: "empty",
+            name: "Empty",
+            component: Empty
           },
         ]
       },

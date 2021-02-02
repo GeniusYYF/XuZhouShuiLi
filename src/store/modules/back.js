@@ -2,15 +2,20 @@ const state = {
     /**
      * header
      * */
-    activeHeaderName: "1",
+    activeHeaderName: "System1",
+    /**
+     * sider
+     * */
+    siderDatas: [],
     /**
     * system2
     * */
     openMenus: [],//menu-cards打开项
-    defaultOpenMenuItem: { title: "我的主页", icon: "md-home", name: "1", path: "/back-system/system2/homepage" },//默认打开的菜单项
-    activeName: "1", // 1,1-1,2-1,2-1-1形式
+    defaultOpenMenuItem: { title: "数据访问", icon: "ios-navigate", name: "1", path: "/back-system/system2/homepage" },//默认打开的菜单项
+    activeName: "0", // 1,1-1,2-1,2-1-1形式
     openNames: [], // 侧边栏菜单打开项
     noCloseNames: ["1"], // 不含x的选项卡name,默认第一项不可关闭
+
 };
 
 const getters = {
@@ -19,6 +24,12 @@ const getters = {
         * */
     getActiveHeaderName(state) {
         return state.activeHeaderName
+    },
+    /**
+     * sider
+     * */
+    getSiderDatas(state) {
+        return state.siderDatas
     },
     /**
         * system2
@@ -46,6 +57,17 @@ const mutations = {
         state.activeHeaderName = name ? name : state.activeHeaderName
     },
     /**
+    * sider
+    * */
+    setSiderDatas(state, data) {
+        state.siderDatas = data
+        state.openMenus = data.length > 0 ? [data[0]] : []
+        state.activeName = "1"
+    },
+    initSiderDatas(state, data) {
+        state.siderDatas = data
+    },
+    /**
      * system2
      * */
     // 添加menu-cards菜单项
@@ -63,6 +85,7 @@ const mutations = {
     // 依据activeName遍历出应展开的所有names
     updateOpenNames(state, n = true) {
         if (n) {  // openNames 为打开的所有submenu，如 ["1","1-1"]
+            console.log(state.activeName)
             let name = state.activeName, i = name.lastIndexOf("-")
             if (i === -1) {
                 state.openNames = [name]

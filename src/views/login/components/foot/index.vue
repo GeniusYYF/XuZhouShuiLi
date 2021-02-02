@@ -63,6 +63,7 @@ export default {};
       .img {
         width: 0.8vw;
         height: 2vh;
+        vertical-align: middle;
       }
       div {
         display: inline-block;

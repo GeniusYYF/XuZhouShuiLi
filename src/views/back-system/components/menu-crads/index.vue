@@ -1,15 +1,17 @@
 <template>
-  <div class="cards">
-    <CardItem
-      v-for="(item, i) in openMenus"
-      :key="i"
-      :i="i"
-      :title="item.title"
-      :icon="item.icon"
-      :name="item.name"
-      :path="item.path"
-      :activeName="activeName"
-    />
+  <div class="cards-wrapper scroll-middle">
+    <div class="cards">
+      <CardItem
+        v-for="(item, i) in openMenus"
+        :key="i"
+        :i="i"
+        :title="item.title"
+        :icon="item.icon"
+        :name="item.name"
+        :path="item.path"
+        :activeName="activeName"
+      />
+    </div>
   </div>
 </template>
 
@@ -44,12 +46,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.cards {
-  position: relative;
-  height: @back-system2-menu-cards-height;
-  line-height: @back-system2-menu-cards-height;
+.cards-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
   background-color: #fff;
   border-bottom: 1px solid #ced4d5;
+}
+.cards {
+  position: relative;
+  width: max-content;
+  height: @back-system2-menu-cards-height;
+  line-height: @back-system2-menu-cards-height;
   padding: 0 10px;
   text-align: left;
   color: #666;

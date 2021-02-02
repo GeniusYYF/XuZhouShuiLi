@@ -87,8 +87,8 @@ export default {
   vertical-align: bottom;
   .item {
     display: inline-block;
-    height: inherit;
-    line-height: inherit;
+    // height: inherit;
+    // line-height: inherit;
     padding: 0 15px 0 10px;
     margin: 0 0.1vw;
     background-color: #fff;
@@ -107,10 +107,12 @@ export default {
     .title {
       font-size: 1.5vh;
       margin: 0 5px;
+      vertical-align: middle;
     }
 
     .icon {
       font-size: 2.5vh;
+      vertical-align: middle;
     }
   }
   .close {

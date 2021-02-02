@@ -10,7 +10,7 @@
     </TabPane>
     <TabPane label="地方水事" name="2">标签二的内容</TabPane>
     <TabPane label="基层工作" name="3">标签三的内容</TabPane>
-    <TabPane label="热点导读" name="4">标签三的内容</TabPane>
+    <TabPane label="热点导读" name="4">标签四的内容</TabPane>
   </Tabs>
 </template>
 

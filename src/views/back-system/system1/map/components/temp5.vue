@@ -42,9 +42,10 @@ export default {
   height: 100%;
   width: 46%;
   margin: 0 2%;
-  padding: 7px;
+  padding: 2vh 7px;
   background-color: #f8f8f8;
   text-align: center;
+
   span {
     font-size: 1vh;
     color: #5c6268;
@@ -54,7 +55,7 @@ export default {
     height: 3vh;
   }
   .num {
-    font-size: 3vh;
+    font-size: @back-system1-num-size;
     line-height: 1;
     font-family: "YouSheBiaoTiHei";
     &.num-blue {
