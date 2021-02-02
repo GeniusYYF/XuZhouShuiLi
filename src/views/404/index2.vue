@@ -28,7 +28,7 @@
         :class="{ start: start }"
         type="default"
         ghost
-        @click="$router.push('/')"
+        @click="$router.push($store.getters.getHonePage)"
         >返回首页</Button
       >
     </div>
@@ -43,6 +43,7 @@ export default {
     };
   },
   mounted() {
+    document.title = "徐州水务信息管理系统-404";
     setTimeout(() => {
       this.start = true;
     });
@@ -104,7 +105,7 @@ export default {
         }
         .big-text {
           transition: all 0.8s ease-in;
-          width: 50vw; 
+          width: 50vw;
           transform: translateX(0); // 平移
         }
       }

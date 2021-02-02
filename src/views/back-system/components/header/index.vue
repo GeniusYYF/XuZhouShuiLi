@@ -15,7 +15,7 @@
         <li class="title-wrapper">
           <img
             class="logo"
-            :src="require(`@/assets/back-system/header/title2.png`)"
+            :src="require(`@/assets/back-system/header/title.png`)"
           />
         </li>
       </Col>
@@ -47,7 +47,7 @@
           <span class="tool-item">
             <img
               :src="require(`@/assets/back-system/header/share.png`)"
-              @click="$router.push('/')"
+              @click="$router.push($store.getters.getHonePage)"
             />
           </span>
           |

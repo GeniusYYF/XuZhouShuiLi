@@ -1,14 +1,11 @@
 <template>
-  <Carousel
-    class="carousel-small"
-    v-model="value"
-    loop
-    
-    :autoplay-speed="5000"
-  >
+  <Carousel class="carousel-small" v-model="value" loop :autoplay-speed="5000">
     <CarouselItem v-for="(item, i) in imgList" :key="i">
-      <img class="img" :src="require(`@/assets/integration/home/${item.name}.png`)" />
-      <div class="title">{{ item.title }}</div>
+      <img
+        class="img"
+        :src="require(`@/assets/integration/home/${item.name}.jpg`)"
+      />
+      <div class="title"><span>{{ item.title }}</span></div>
     </CarouselItem>
   </Carousel>
 </template>
@@ -21,20 +18,20 @@ export default {
       value: 0,
       imgList: [
         {
-          name: "bitmap",
-          title: "市河长办赴济宁协调推进南四湖水环境治理保护工作",
+          name: "img-small1",
+          title: "丰县大沙河国家级水利风景区 再添1个国家级、3个省级水利风景区",
         },
         {
-          name: "bitmap",
-          title: "市河长办赴济宁协调推进南四湖水环境治理保护工作",
+          name: "img-small2",
+          title: "新建成的丰县付庄水厂 全市城乡供水一体化新格局基本形成",
         },
         {
-          name: "bitmap",
-          title: "市河长办赴济宁协调推进南四湖水环境治理保护工作",
+          name: "img-small3",
+          title: "荆马河污水处理厂 《徐州市排水与污水处理条例》通过审议",
         },
         {
-          name: "bitmap",
-          title: "市河长办赴济宁协调推进南四湖水环境治理保护工作",
+          name: "img-small4",
+          title: "新城区大龙湖 最严格水资源管理进入全省优秀方阵",
         },
       ],
     };
@@ -71,6 +68,11 @@ export default {
     text-align: left;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 0 1vw;
+
+    span:hover{
+      cursor: pointer;
+      color: @theme-blue;
+    }
   }
 
   // 更改组件内部dots

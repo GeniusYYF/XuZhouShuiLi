@@ -118,7 +118,7 @@ export default {
                 let redirect = this.$route.query.redirect;
                 console.log(this.$route, "redirect:", redirect);
                 // 此时要判断/login后面的参数，若无参数，进入主页；
-                this.$router.push(redirect || "/");
+                this.$router.push(redirect || this.$store.getters.getHonePage);
               }, 1000);
             })
             .catch((error) => {

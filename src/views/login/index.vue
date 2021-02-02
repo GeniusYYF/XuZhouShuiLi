@@ -36,6 +36,9 @@ export default {
     Box3,
     LoginFoot,
   },
+  mounted() {
+    document.title = "徐州水务信息管理系统-登录";
+  },
 };
 </script>
 

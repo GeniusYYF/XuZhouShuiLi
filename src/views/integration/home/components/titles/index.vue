@@ -1,7 +1,10 @@
 <template>
   <Row class="titles">
     <Col class="item" v-for="(item, i) in sysList" :key="i" span="2">
-      <img class="img" :src="require(`@/assets/integration/home/${item.icon}.png`)" />
+      <img
+        class="img"
+        :src="require(`@/assets/integration/home/${item.icon}.png`)"
+      />
       <div class="title">{{ item.title }}</div>
     </Col>
   </Row>
@@ -12,10 +15,6 @@ export default {
   data() {
     return {
       sysList: [
-        { title: "城镇排水", icon: "1" },
-        { title: "河长监督", icon: "2" },
-        { title: "河湖管理", icon: "3" },
-        { title: "水土保持", icon: "4" },
         { title: "防汛抗旱", icon: "5" },
         { title: "供水管理", icon: "6" },
         { title: "排水管理", icon: "7" },
@@ -23,6 +22,10 @@ export default {
         { title: "工程管理", icon: "9" },
         { title: "水资源管理", icon: "10" },
         { title: "农村水利管理", icon: "11" },
+        { title: "城镇排水", icon: "1" },
+        { title: "河长监督", icon: "2" },
+        { title: "河湖管理", icon: "3" },
+        { title: "水土保持", icon: "4" },
         { title: "协同办公", icon: "12" },
       ],
     };
@@ -44,7 +47,7 @@ export default {
       cursor: pointer;
       .img {
         // background-color:rgba(@theme-blue, .3);
-        box-shadow: inset 0 5px 10px rgba(@theme-blue, .5);
+        box-shadow: inset 0 5px 10px rgba(@theme-blue, 0.5);
         border-radius: 50%;
       }
       .title {

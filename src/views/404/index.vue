@@ -5,13 +5,22 @@
       <Button class="btn" type="warning" ghost @click="$router.go(-1)">
         返回上一页
       </Button>
-      <Button type="warning" ghost @click="$router.push('/')">返回首页</Button>
+      <Button
+        type="warning"
+        ghost
+        @click="$router.push($store.getters.getHonePage)"
+        >返回首页</Button
+      >
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    document.title = "徐州水务信息管理系统-404";
+  },
+};
 </script>
 
 <style lang="less" scoped>

@@ -75,7 +75,7 @@ export default {
       this.$refs[name].validate((valid) => {
         if (valid) {
           this.$Message.success("登录成功");
-          this.$router.push("/");
+          this.$router.push(this.$store.getters.getHonePage);
         } else {
           this.$Message.error("请输入正确的验证码");
         }

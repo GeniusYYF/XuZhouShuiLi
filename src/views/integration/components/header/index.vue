@@ -23,7 +23,7 @@
           </template>
         </li>
       </Col>
-      <Col :xl="{ span: 12 }" :xxl="{ span: 12 }">
+      <Col :xl="{ span: 10 }" :xxl="{ span: 10 }">
         <MenuItem name="1" class="header-item" :to="'/integration/home'">
           <!-- 因下划线需要被span包裹 -->
           <span>首页</span>
@@ -34,22 +34,22 @@
         <MenuItem name="3" class="header-item" :to="'/integration/eg2'">
           <span>政府服务</span>
         </MenuItem>
-        <MenuItem name="4" class="header-item" :to="'/integration/eg3'">
+        <MenuItem name="4" class="header-item">
           <span>政务互动</span>
         </MenuItem>
       </Col>
-      <Col :xl="{ span: 2 }" :xxl="{ span: 2 }" class="tool">
+      <Col :xl="{ span: 4 }" :xxl="{ span: 4 }" class="tool">
         <li class="tool-wrapper">
-          <Icon
-            class="header-icon"
-            type="ios-search"
-            @click="$router.push('/login')"
-          />
-          <!-- <img class="header-icon" :src="require(`@/assets/integration/header/search.png`)" /> -->
+          <Icon class="header-icon" type="ios-search" />
           <Icon
             class="header-icon"
             type="md-settings"
             @click="$router.push('/back-system/system1/map')"
+          />
+          <Icon
+            class="header-icon"
+            type="md-exit"
+            @click="$router.push('/login')"
           />
         </li>
       </Col>

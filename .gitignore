@@ -2,7 +2,8 @@
 node_modules
 /dist
 XuZhouProject
-
+XuZhouProject.rar
+XuZhouProject-source.rar
 /tests/e2e/logs/
 
 # local env files

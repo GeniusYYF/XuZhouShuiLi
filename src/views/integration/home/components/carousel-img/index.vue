@@ -7,7 +7,7 @@
     :autoplay-speed="12000"
   >
     <CarouselItem v-for="(item, i) in imgList" :key="i">
-      <img class="img" :src="require(`@/assets/integration/home/${item.name}.png`)" />
+      <img class="img" :src="require(`@/assets/integration/home/${item.name}.jpg`)" />
     </CarouselItem>
   </Carousel>
 </template>
@@ -19,10 +19,10 @@ export default {
     return {
       value: 0,
       imgList: [
-        { name: "image" },
-        { name: "image" },
-        { name: "image" },
-        { name: "image" },
+        { name: "img1" },
+        { name: "img2" },
+        { name: "img3" },
+        { name: "img4" },
       ],
     };
   },

@@ -1,7 +1,7 @@
 <!--
  * @Author: 杨云峰
  * @Date: 2020-12-31 09:32:37
- * @LastEditTime: 2021-01-29 17:43:03
+ * @LastEditTime: 2021-02-02 16:17:14
  * @LastEditors: 杨云峰
  * @Description: 
 -->
@@ -21,15 +21,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  // color: #2c3e50;
   color: @theme-black;
 }
 // 字体库放在common.less中会出问题
 @font-face {
   font-family: "YouSheBiaoTiHei";
   src: url("../public/font/YouSheBiaoTiHei.ttf");
-  font-weight: normal;
-  font-style: normal;
 }
 @font-face {
   font-family: "PingFangSCRegular";

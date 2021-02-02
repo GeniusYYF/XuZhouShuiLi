@@ -10,7 +10,7 @@ const routes = [
   {
     path: "/",
     name: "/",
-    redirect: "/integration",
+    redirect: "/login",
   },
   {
     path: "/login",
@@ -126,17 +126,17 @@ const routes = [
       },
     ]
   },
-  {
-    path: "/404",
-    name: "NotPage",
-    component: () =>
-      import("@/views/404/index.vue")
-  },
-  {
-    path: "*",
-    name: "AllPage",
-    redirect: "/404"
-  }
+  // {
+  //   path: "/404",
+  //   name: "NotPage",
+  //   component: () =>
+  //     import("@/views/404/index.vue")
+  // },
+  // {
+  //   path: "*",
+  //   name: "AllPage",
+  //   redirect: "/404"
+  // }
 ];
 
 const router = new VueRouter({

@@ -10,6 +10,7 @@
           >关注<span class="num num-green">0</span>
         </div>
       </div>
+      <Spin class="spin" size="large" fix v-if="!loaded"></Spin>
     </div>
     <div class="tools">
       <Select class="select" v-model="selectVal" placeholder="徐州市">
@@ -173,6 +174,7 @@
 export default {
   data() {
     return {
+      loaded: false, // 是否加载完成，显示加载状态
       selectVal: "0",
       legends: [
         {
@@ -336,6 +338,10 @@ export default {
           marker.openInfoWindow(this.$refs.mm);
         });
         map.addOverLay(marker);
+        this.loaded = true
+        // setTimeout(() => {
+        //   this.loaded = true
+        // }, 1000);
       }
     },
     GetRandomNum(Min, Max) {
@@ -353,9 +359,6 @@ export default {
   },
   mounted() {
     this.initMap();
-    // setTimeout(() => {
-    //   this.initMap();
-    // }, 2000);
   },
 };
 </script>
@@ -552,6 +555,10 @@ export default {
         }
       }
     }
+  }
+
+  .spin {
+    z-index: 1000; // 大于legend和tools
   }
 }
 </style>

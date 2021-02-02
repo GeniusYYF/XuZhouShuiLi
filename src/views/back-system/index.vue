@@ -22,8 +22,9 @@ export default {
     MyHeader,
     MyFooter,
   },
-
-  methods: {},
+  mounted() {
+    document.title = "徐州水务信息管理系统-应用支撑平台";
+  },
 };
 </script>
 

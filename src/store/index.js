@@ -13,6 +13,7 @@ const state = { //要设置的全局访问的state对象,赋予初始属性值
   activeRoute: '', // '/'+window.location.hash.split('/')[1]
   token: null,
   user: null,
+  homePage: "/integration", // 首页路由
 };
 
 const getters = {   //实时监听state值的变化(最新状态)
@@ -25,7 +26,10 @@ const getters = {   //实时监听state值的变化(最新状态)
   },
   getUser(state) {
     return state.user || storage.get("user") || null
-  }
+  },
+  getHonePage(state) {
+    return state.homePage
+  },
 };
 
 const mutations = {
