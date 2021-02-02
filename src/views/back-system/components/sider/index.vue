@@ -49,6 +49,7 @@ export default {
         this.$store.commit("back/initSiderDatas", data.data);
         this.$nextTick(() => {
           this.$refs.menu.updateActiveName();
+          this.$refs.menu.updateOpened();
         });
       })
       .catch((error) => {
@@ -72,8 +73,8 @@ export default {
   /deep/ .ivu-menu-submenu-title,
   /deep/ .ivu-menu-item {
     font-size: 1.8vh;
-    font-family: "PingFangBold";
-    font-weight: 700;
+    // font-family: "PingFangBold";
+    // font-weight: 700;
     padding-top: @space;
     padding-bottom: @space;
     // 左icon
@@ -92,14 +93,14 @@ export default {
     // }
   }
 
-  /deep/ .ivu-menu-submenu,
-  /deep/ .ivu-menu-item {
-    // 子集无icon - 即末项字体样式
-    & .ivu-menu-item {
-      font-family: "PingFangJianChangGuiTi";
-      font-weight: 400;
-      font-size: 1.4vh;
-    }
-  }
+  // /deep/ .ivu-menu-submenu,
+  // /deep/ .ivu-menu-item {
+  // 子集无icon - 即末项字体样式
+  // & .ivu-menu-item {
+  // font-family: "PingFangJianChangGuiTi";
+  // font-weight: 400;
+  // font-size: 1.4vh;
+  // }
+  // }
 }
 </style>

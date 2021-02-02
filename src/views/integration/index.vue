@@ -2,7 +2,7 @@
   <div class="integration">
     <MyHeader />
 
-    <router-view />
+    <router-view class="integration-body" />
 
     <MyFooter />
   </div>
@@ -28,5 +28,11 @@ export default {
 .integration {
   height: 100%;
   width: 100%;
+
+  .integration-body {
+    width: @integration-body-width;
+    margin: 0 auto;
+    min-height: @integration-body-min-height;
+  }
 }
 </style>

@@ -22,10 +22,10 @@ export default {};
 .footer {
   height: @integration-foot-height;
   width: 100%;
-  padding: 5px 0;
+  padding: 5px 0 0;
   background-color: rgb(51, 71, 80);
   color: rgba(228, 227, 227, 0.7);
-  font-size: 2vh;
+  font-size: 1.5vh;
   div {
     line-height: 2;
   }

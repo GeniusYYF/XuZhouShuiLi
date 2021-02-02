@@ -5,7 +5,7 @@ let siderDatas = [
             title: "数据访问",
             path: "homepage",
             icon: "ios-navigate",
-            children: null,
+            children: null
         },
         {
             title: "数据查询",
@@ -17,7 +17,19 @@ let siderDatas = [
             title: "数据交换",
             path: null,
             icon: "ios-navigate",
-            children: null,
+            children: [
+                {
+                    title: "二级菜单",
+                    path: null,
+                    icon: "ios-navigate",
+                    children: [{
+                        title: "三级菜单",
+                        path: null,
+                        icon: "ios-navigate",
+                        children: null,
+                    },],
+                },
+            ],
         },
         {
             title: "用户管理",

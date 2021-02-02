@@ -163,7 +163,7 @@ export default {
       span {
         font-family: "PingFangBold";
         line-height: 1.5;
-        font-size: 2.8vh;
+        font-size: 2vh;
         vertical-align: middle;
         display: inline-block;
       }

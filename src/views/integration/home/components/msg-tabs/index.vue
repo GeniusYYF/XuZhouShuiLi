@@ -59,7 +59,7 @@ export default {
     // margin-bottom: 0;
 
     .ivu-tabs-nav {
-      font-size: 2.4vh;
+      font-size: 2vh;
       color: @theme-black;
       width: 100%;
 

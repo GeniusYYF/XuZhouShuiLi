@@ -85,7 +85,6 @@ const mutations = {
     // 依据activeName遍历出应展开的所有names
     updateOpenNames(state, n = true) {
         if (n) {  // openNames 为打开的所有submenu，如 ["1","1-1"]
-            console.log(state.activeName)
             let name = state.activeName, i = name.lastIndexOf("-")
             if (i === -1) {
                 state.openNames = [name]
