@@ -1,7 +1,7 @@
 export default {
     install: function () {
         return new Promise((resolve, reject) => {
-            console.log(reject)
+            console.log(resolve,reject)
             // 插入script脚本
             const scriptNode = document.createElement('script')
             scriptNode.setAttribute('type', 'text/javascript')

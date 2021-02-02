@@ -130,7 +130,7 @@ const routes = [
     path: "/404",
     name: "NotPage",
     component: () =>
-      import("@/views/404/index2.vue")
+      import("@/views/404/index.vue")
   },
   {
     path: "*",

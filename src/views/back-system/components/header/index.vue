@@ -15,7 +15,7 @@
         <li class="title-wrapper">
           <img
             class="logo"
-            :src="require(`@/assets/back-system/header/title.png`)"
+            :src="require(`@/assets/back-system/header/title2.png`)"
           />
         </li>
       </Col>
@@ -130,7 +130,7 @@ export default {
     &.title {
       .logo {
         height: 4vh;
-        width: 30.5vw;
+        // width: 30.5vw;
         vertical-align: middle;
         margin-left: 1vw;
       }

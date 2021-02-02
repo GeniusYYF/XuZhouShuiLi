@@ -40,7 +40,11 @@
       </Col>
       <Col :xl="{ span: 2 }" :xxl="{ span: 2 }" class="tool">
         <li class="tool-wrapper">
-          <Icon class="header-icon" type="ios-search" />
+          <Icon
+            class="header-icon"
+            type="ios-search"
+            @click="$router.push('/login')"
+          />
           <!-- <img class="header-icon" :src="require(`@/assets/integration/header/search.png`)" /> -->
           <Icon
             class="header-icon"
